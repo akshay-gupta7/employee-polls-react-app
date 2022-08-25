@@ -63,6 +63,7 @@ const QuestionDetail = ({ question, dispatch, id, authedUser }) => {
 								<tr>
 									<th scope="col">#</th>
 									<th scope="col">Option</th>
+                                    <th scope="col">Count of Selected by</th>
 									<th scope="col">Percent</th>
 								</tr>
 							</thead>
@@ -70,11 +71,13 @@ const QuestionDetail = ({ question, dispatch, id, authedUser }) => {
 								<tr>
 									<th scope="row">1</th>
 									<td>{optionOneText}</td>
+                                    <td>Selected by {Math.round((optionOnePercent * totalVotes)/100)} out of {totalVotes}</td>
 									<td>{optionOnePercent}%</td>
 								</tr>
 								<tr>
 									<th scope="row">2</th>
 									<td>{optionTwoText}</td>
+                                    <td>Selected by {Math.round((optionTwoPercent * totalVotes)/100)} out of {totalVotes}</td>
 									<td>{optionTwoPercent}%</td>
 								</tr>
 								<tr>
