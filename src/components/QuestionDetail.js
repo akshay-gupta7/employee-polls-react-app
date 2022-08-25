@@ -23,7 +23,7 @@ const QuestionDetail = ({ question, dispatch, id, authedUser }) => {
     
 	const handleOnClick = (answer) => {
         console.log("The answer, qid and autheduser is ", answer, id , authedUser );
-        dispatch(handleAnswer({id, answer, authedUser}));
+        dispatch(handleAnswer({authedUser, id,answer}));
 		//dispatch(handleAnswer({ id, answer, authedUser}));
 
 

@@ -1,6 +1,6 @@
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
 
-import { _saveQuestion, _saveQuestionAnswer } from '../../src/util/_DATA';
+import { saveQuestion, saveQuestionAnswer } from '../../src/util/serviceAPI';
 import { saveAnswerToUser, saveQuestionToUser } from './users';
 
 
@@ -36,7 +36,7 @@ export function handleAddQuestion({ optionOneText, optionTwoText }) {
     const { authedUser } = getState();
     dispatch(showLoading());
 
-    return _saveQuestion({
+    return saveQuestion({
       optionOneText,
       optionTwoText,
       author: authedUser
@@ -50,15 +50,15 @@ export function handleAddQuestion({ optionOneText, optionTwoText }) {
   };
 }
 
-export function handleAnswer(id, answer, authedUser) {
+export function handleAnswer({id, answer, authedUser}) {
   return (dispatch, getState) => {
     //const { authedUser } = getState();
 
     dispatch(showLoading());
 
-    return _saveQuestionAnswer({authedUser, qid: id, answer }).then(() => {
+    return saveQuestionAnswer({authedUser: authedUser, qid : id, answer:  answer }).then(() => {
       console.log('Here in questions.js, Handling answer to question');
-      dispatch(questionAnswer({  authedUser, id, answer }));
+      dispatch(questionAnswer({ authedUser, id, answer }));
       dispatch(saveAnswerToUser({ authedUser, id, answer }));
       dispatch(hideLoading());
     });
