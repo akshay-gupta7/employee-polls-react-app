@@ -8,6 +8,7 @@ import avatar from '../assets/avatar_4.png'
 
 import DisplayErrorPage from "./DisplayErrorPage";
 import { questionAnswer } from "../actions/questions";
+import { handleAnswer } from "../actions/questions";
 //import Useauthentication from "./Useauthenticn";
 
 const QuestionDetail = ({ question, dispatch, id, authedUser }) => {
@@ -24,8 +25,9 @@ const QuestionDetail = ({ question, dispatch, id, authedUser }) => {
 
 	
 	const handleOnClick = (answer) => {
-        console.log("The answer is ", answer )
-		dispatch(questionAnswer({ id, answer, authedUser}));
+        console.log("The answer is ", answer );
+        dispatch(handleAnswer({id, answer, authedUser}));
+		//dispatch(handleAnswer({ id, answer, authedUser}));
 		navigation(`/questions/${id}`);
 	};
 
