@@ -48,13 +48,13 @@ const AddQuestion = ({ dispatch, authedUser}) => {
             <form onSubmit={handleOnSubmit}>
                 <div className="form">
                     <label htmlFor="firstOptionValue" className="form-text"> First Option</label>
-                    <input value={firstOption} className="form-value" placeholder="Option One" onChange={handleOnOptionOneChange} required />
+                    <input data-testid="option-one-input" value={firstOption} className="form-value" placeholder="Option One" onChange={handleOnOptionOneChange} required />
                 </div>
                 <div className="form">
                     <label htmlFor="secondOptionValue" className="form-text"> Second Option</label>
-                    <input value={secondOption} className="form-value" placeholder="Option Two" onChange={handleOnOptionTwoChange} required />
+                    <input data-testid="option-two-input" value={secondOption} className="form-value" placeholder="Option Two" onChange={handleOnOptionTwoChange} required />
                 </div>
-                <button type ="submit" className="button">Click to Add the Question</button> 
+                <button data-testid="submit-button" type ="submit" className="button" disabled={firstOption === "" || secondOption === ""}>Click to Add the Question</button> 
             </form>
         </div>
     )
