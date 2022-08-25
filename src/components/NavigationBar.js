@@ -3,13 +3,14 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import avatar from '../assets/avatar_3.png'
+import { logoutUser } from "../actions/authedUser";
 
 const NavigationBar= ({user, authedUser, dispatch}) => {
     const location = useLocation();
     const navigation = useNavigate();
 
     const onLogout = () =>{
-        dispatch(authedUser(null));
+        dispatch(logoutUser());
         navigation('/login');
     }
 
