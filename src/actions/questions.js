@@ -50,13 +50,13 @@ export function handleAddQuestion({ optionOneText, optionTwoText }) {
   };
 }
 
-export function handleAnswer(id, answer) {
+export function handleAnswer(id, answer, authedUser) {
   return (dispatch, getState) => {
-    const { authedUser } = getState();
+    //const { authedUser } = getState();
 
     dispatch(showLoading());
 
-    return _saveQuestionAnswer({ id, answer, authedUser }).then(() => {
+    return _saveQuestionAnswer({ qid: id, answer, authedUser }).then(() => {
       console.log('Here in questions.js, Handling answer to question');
       dispatch(questionAnswer({ id, answer, authedUser }));
       dispatch(saveAnswerToUser({ id, answer, authedUser }));
