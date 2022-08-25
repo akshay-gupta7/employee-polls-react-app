@@ -8,12 +8,16 @@ import avatar from '../assets/avatar_4.png'
 
 import DisplayErrorPage from "./DisplayErrorPage";
 import { questionAnswer } from "../actions/questions";
+import Useauthentication from "./Useauthentication";
 
 const QuestionDetail = ({ question, dispatch, id, authedUser }) => {
     const navigation = useNavigate();
 	if (question === null) {
 		return (
+            <>
+            <Useauthentication />
 			<DisplayErrorPage />
+            </>
 		);
 	};
     

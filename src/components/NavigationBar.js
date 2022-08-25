@@ -9,6 +9,7 @@ const NavigationBar= ({user, authedUser, dispatch}) => {
     const navigation = useNavigate();
 
     const onLogout = () =>{
+        dispatch(authedUser(null));
         navigation('/login');
     }
 
