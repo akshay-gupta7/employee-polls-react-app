@@ -22,7 +22,7 @@ export function addQuestion(question) {
   };
 }
 
-export function questionAnswer({ id, answer, authedUser }) {
+export function questionAnswer({ authedUser, id, answer  }) {
   return {
     type: QUESTION_ANSWER,
     id,
@@ -56,10 +56,10 @@ export function handleAnswer(id, answer, authedUser) {
 
     dispatch(showLoading());
 
-    return _saveQuestionAnswer({ qid: id, answer, authedUser }).then(() => {
+    return _saveQuestionAnswer({authedUser, qid: id, answer }).then(() => {
       console.log('Here in questions.js, Handling answer to question');
-      dispatch(questionAnswer({ id, answer, authedUser }));
-      dispatch(saveAnswerToUser({ id, answer, authedUser }));
+      dispatch(questionAnswer({  authedUser, id, answer }));
+      dispatch(saveAnswerToUser({ authedUser, id, answer }));
       dispatch(hideLoading());
     });
   };

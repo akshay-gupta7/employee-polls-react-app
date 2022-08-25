@@ -180,9 +180,14 @@ export function _saveQuestion (question) {
 
 export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
   return new Promise((resolve, reject) => {
+    
     if (!authedUser || !qid || !answer) {
+      console.log(authedUser);
+    console.log(qid);
+    console.log(answer);
       reject("Please provide authedUser, qid, and answer");
-    }
+     }
+    
 
     setTimeout(() => {
       users = {

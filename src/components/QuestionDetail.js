@@ -7,7 +7,6 @@ import Useauthentication from "./Useauthentication";
 import avatar from '../assets/avatar_4.png'
 
 import DisplayErrorPage from "./DisplayErrorPage";
-import { questionAnswer } from "../actions/questions";
 import { handleAnswer } from "../actions/questions";
 //import Useauthentication from "./Useauthenticn";
 
@@ -22,12 +21,12 @@ const QuestionDetail = ({ question, dispatch, id, authedUser }) => {
 		);
 	};
     
-
-	
 	const handleOnClick = (answer) => {
-        console.log("The answer is ", answer );
+        console.log("The answer, qid and autheduser is ", answer, id , authedUser );
         dispatch(handleAnswer({id, answer, authedUser}));
 		//dispatch(handleAnswer({ id, answer, authedUser}));
+
+
 		navigation(`/questions/${id}`);
 	};
 
